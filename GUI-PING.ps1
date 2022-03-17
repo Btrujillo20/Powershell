@@ -80,12 +80,6 @@ $yes.size = New-Object system.drawing.size(120,23)
 $yes.text = 'Yes'
 $main_form2.controls.add($yes)
 
-$nope = New-Object System.Windows.Forms.Button
-$nope.location = New-Object system.drawing.size(350,400)
-$nope.size = New-Object system.drawing.size(120,23)
-$nope.text = 'No'
-$main_form2.controls.add($nope)
-
-$yes.add_click({$trace.text = (test-netconnection -traceroute -InformationLevel Quiet $combobox.text)})
+$yes.add_click({$trace.text = (test-netconnection -traceroute -informationlevel quiet $combobox.text)})
 
 $main_form2.showdialog() | out-null
