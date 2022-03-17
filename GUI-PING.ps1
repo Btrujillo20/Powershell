@@ -12,10 +12,8 @@ $label.autosize = $true
 $main_form.Controls.Add($label)
 
 
-$combobox = New-Object system.windows.forms.combobox
+$combobox = New-Object system.windows.forms.textbox
 $combobox.width = 300
-$website =  read-host -prompt 'Website'
-$combobox.items.add($website)
 $combobox.location = New-Object system.drawing.point(100,20)
 $main_form.controls.add($combobox)
 
@@ -38,5 +36,5 @@ $button.size = New-Object system.drawing.size(120,23)
 $button.text = 'Send'
 $main_form.controls.add($button)
 
-$button.add_click({$ping.text = (ping $website)})
+$button.add_click({$ping.text = (test-connection combobox.text -quiet -count 1)})
 $main_form.ShowDialog()
